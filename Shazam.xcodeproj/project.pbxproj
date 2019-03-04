@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		144107FDADD1624C653AEC13 /* Pods_Shazam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F11FC9459A12BA37955AC712 /* Pods_Shazam.framework */; };
+		DF4E92B4221EDA5700ECDEB2 /* Shazam.h in Headers */ = {isa = PBXBuildFile; fileRef = DF4E92B2221EDA5700ECDEB2 /* Shazam.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DF4E92C0221EDAB300ECDEB2 /* ShazamPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4E92BA221EDAB300ECDEB2 /* ShazamPageViewController.swift */; };
+		DF4E92C1221EDAB300ECDEB2 /* ShazamChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4E92BB221EDAB300ECDEB2 /* ShazamChildViewController.swift */; };
+		DF4E92C2221EDAB300ECDEB2 /* ShazamHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4E92BC221EDAB300ECDEB2 /* ShazamHeaderView.swift */; };
+		DF4E92C3221EDAB300ECDEB2 /* ShazamContainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4E92BD221EDAB300ECDEB2 /* ShazamContainView.swift */; };
+		DF4E92C4221EDAB300ECDEB2 /* ShazamTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4E92BE221EDAB300ECDEB2 /* ShazamTopView.swift */; };
+		DF4E92C5221EDAB300ECDEB2 /* NSCache+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4E92BF221EDAB300ECDEB2 /* NSCache+Additional.swift */; };
+		DF4E92C7221EDAC100ECDEB2 /* UIScrollView+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4E92C6221EDAC100ECDEB2 /* UIScrollView+Additional.swift */; };
+		DF4E92C9221EDAC600ECDEB2 /* UIViewController+Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4E92C8221EDAC600ECDEB2 /* UIViewController+Additional.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AA9E95405942883CCAA6E15C /* Pods-Shazam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shazam.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shazam/Pods-Shazam.debug.xcconfig"; sourceTree = "<group>"; };
+		B11CC81FF19CDF259B1158AA /* Pods-Shazam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shazam.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shazam/Pods-Shazam.release.xcconfig"; sourceTree = "<group>"; };
+		DF4E92AF221EDA5700ECDEB2 /* Shazam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shazam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF4E92B2221EDA5700ECDEB2 /* Shazam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shazam.h; sourceTree = "<group>"; };
+		DF4E92B3221EDA5700ECDEB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF4E92BA221EDAB300ECDEB2 /* ShazamPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamPageViewController.swift; sourceTree = "<group>"; };
+		DF4E92BB221EDAB300ECDEB2 /* ShazamChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamChildViewController.swift; sourceTree = "<group>"; };
+		DF4E92BC221EDAB300ECDEB2 /* ShazamHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamHeaderView.swift; sourceTree = "<group>"; };
+		DF4E92BD221EDAB300ECDEB2 /* ShazamContainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamContainView.swift; sourceTree = "<group>"; };
+		DF4E92BE221EDAB300ECDEB2 /* ShazamTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamTopView.swift; sourceTree = "<group>"; };
+		DF4E92BF221EDAB300ECDEB2 /* NSCache+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCache+Additional.swift"; sourceTree = "<group>"; };
+		DF4E92C6221EDAC100ECDEB2 /* UIScrollView+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Additional.swift"; sourceTree = "<group>"; };
+		DF4E92C8221EDAC600ECDEB2 /* UIViewController+Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additional.swift"; sourceTree = "<group>"; };
+		F11FC9459A12BA37955AC712 /* Pods_Shazam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shazam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DF4E92AC221EDA5700ECDEB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				144107FDADD1624C653AEC13 /* Pods_Shazam.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4B912D39343B1F7808FCC780 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AA9E95405942883CCAA6E15C /* Pods-Shazam.debug.xcconfig */,
+				B11CC81FF19CDF259B1158AA /* Pods-Shazam.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D28274561A784C3C16784AFB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F11FC9459A12BA37955AC712 /* Pods_Shazam.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DF4E92A5221EDA5700ECDEB2 = {
+			isa = PBXGroup;
+			children = (
+				DF4E92B1221EDA5700ECDEB2 /* Shazam */,
+				DF4E92B0221EDA5700ECDEB2 /* Products */,
+				4B912D39343B1F7808FCC780 /* Pods */,
+				D28274561A784C3C16784AFB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DF4E92B0221EDA5700ECDEB2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DF4E92AF221EDA5700ECDEB2 /* Shazam.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DF4E92B1221EDA5700ECDEB2 /* Shazam */ = {
+			isa = PBXGroup;
+			children = (
+				DF4E92BF221EDAB300ECDEB2 /* NSCache+Additional.swift */,
+				DF4E92BB221EDAB300ECDEB2 /* ShazamChildViewController.swift */,
+				DF4E92BD221EDAB300ECDEB2 /* ShazamContainView.swift */,
+				DF4E92BC221EDAB300ECDEB2 /* ShazamHeaderView.swift */,
+				DF4E92BA221EDAB300ECDEB2 /* ShazamPageViewController.swift */,
+				DF4E92BE221EDAB300ECDEB2 /* ShazamTopView.swift */,
+				DF4E92C6221EDAC100ECDEB2 /* UIScrollView+Additional.swift */,
+				DF4E92C8221EDAC600ECDEB2 /* UIViewController+Additional.swift */,
+				DF4E92B2221EDA5700ECDEB2 /* Shazam.h */,
+				DF4E92B3221EDA5700ECDEB2 /* Info.plist */,
+			);
+			path = Shazam;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		DF4E92AA221EDA5700ECDEB2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF4E92B4221EDA5700ECDEB2 /* Shazam.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		DF4E92AE221EDA5700ECDEB2 /* Shazam */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF4E92B7221EDA5700ECDEB2 /* Build configuration list for PBXNativeTarget "Shazam" */;
+			buildPhases = (
+				F40F0E655BE5C5022914EF55 /* [CP] Check Pods Manifest.lock */,
+				DF4E92AA221EDA5700ECDEB2 /* Headers */,
+				DF4E92AB221EDA5700ECDEB2 /* Sources */,
+				DF4E92AC221EDA5700ECDEB2 /* Frameworks */,
+				DF4E92AD221EDA5700ECDEB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Shazam;
+			productName = Shazam;
+			productReference = DF4E92AF221EDA5700ECDEB2 /* Shazam.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DF4E92A6221EDA5700ECDEB2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = bawn;
+				TargetAttributes = {
+					DF4E92AE221EDA5700ECDEB2 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = DF4E92A9221EDA5700ECDEB2 /* Build configuration list for PBXProject "Shazam" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DF4E92A5221EDA5700ECDEB2;
+			productRefGroup = DF4E92B0221EDA5700ECDEB2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DF4E92AE221EDA5700ECDEB2 /* Shazam */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DF4E92AD221EDA5700ECDEB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F40F0E655BE5C5022914EF55 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Shazam-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DF4E92AB221EDA5700ECDEB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF4E92C5221EDAB300ECDEB2 /* NSCache+Additional.swift in Sources */,
+				DF4E92C0221EDAB300ECDEB2 /* ShazamPageViewController.swift in Sources */,
+				DF4E92C3221EDAB300ECDEB2 /* ShazamContainView.swift in Sources */,
+				DF4E92C2221EDAB300ECDEB2 /* ShazamHeaderView.swift in Sources */,
+				DF4E92C4221EDAB300ECDEB2 /* ShazamTopView.swift in Sources */,
+				DF4E92C1221EDAB300ECDEB2 /* ShazamChildViewController.swift in Sources */,
+				DF4E92C7221EDAC100ECDEB2 /* UIScrollView+Additional.swift in Sources */,
+				DF4E92C9221EDAC600ECDEB2 /* UIViewController+Additional.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		DF4E92B5221EDA5700ECDEB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DF4E92B6221EDA5700ECDEB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DF4E92B8221EDA5700ECDEB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA9E95405942883CCAA6E15C /* Pods-Shazam.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Shazam/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = bawn.Shazam;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DF4E92B9221EDA5700ECDEB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B11CC81FF19CDF259B1158AA /* Pods-Shazam.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Shazam/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = bawn.Shazam;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DF4E92A9221EDA5700ECDEB2 /* Build configuration list for PBXProject "Shazam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF4E92B5221EDA5700ECDEB2 /* Debug */,
+				DF4E92B6221EDA5700ECDEB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DF4E92B7221EDA5700ECDEB2 /* Build configuration list for PBXNativeTarget "Shazam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF4E92B8221EDA5700ECDEB2 /* Debug */,
+				DF4E92B9221EDA5700ECDEB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DF4E92A6221EDA5700ECDEB2 /* Project object */;
+}
