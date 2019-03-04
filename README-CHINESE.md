@@ -1,7 +1,7 @@
-# Aquaman
+# Shazam
 
 ![License MIT](https://img.shields.io/dub/l/vibe-d.svg)
-![Pod version](http://img.shields.io/cocoapods/v/Aquaman.svg?style=flat)
+![Pod version](http://img.shields.io/cocoapods/v/Shazam.svg?style=flat)
 ![Platform info](http://img.shields.io/cocoapods/p/LCNetwork.svg?style=flat)
 [![Support](https://img.shields.io/badge/support-iOS9.0+-blue.svg?style=flat)](https://www.apple.com/nl/ios/)
 [![Swift 4.2](https://camo.githubusercontent.com/cc157628e33009bbb18f6e476955a0f641f407d9/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f53776966742d342e322d6f72616e67652e7376673f7374796c653d666c6174)](https://developer.apple.com/swift/)
@@ -25,25 +25,25 @@ A pure-Swift library for nested display of horizontal and vertical scrolling vie
 ```
 use_frameworks!
 
-pod 'Aquaman'
+pod 'Shazam'
 ```
 
 ## Usage
 
-首先需要导入 Aquaman
+首先需要导入 Shazam
 
 ```
-import Aquaman
+import Shazam
 ```
 
 
 
-#### 创建 AquamanPageViewController 子类
+#### 创建 ShazamPageViewController 子类
 
 ```swift
-import Aquaman
+import Shazam
 
-class PageViewController: AquamanPageViewController {
+class PageViewController: ShazamPageViewController {
   // ...
 }
 ```
@@ -51,25 +51,25 @@ class PageViewController: AquamanPageViewController {
 #### 重写协议方法以提供 viewController 和相应的数量
 
 ```swift
-override func numberOfViewControllers(in pageController: AquamanPageViewController) -> Int {
+override func numberOfViewControllers(in pageController: ShazamPageViewController) -> Int {
     return count
 }
     
-override func pageController(_ pageController: AquamanPageViewController, viewControllerAt index: Int) -> (UIViewController & AquamanChildViewController) {
+override func pageController(_ pageController: ShazamPageViewController, viewControllerAt index: Int) -> (UIViewController & ShazamChildViewController) {
     // ...
     return viewController
 }
     
 ```
 
-注意：所提供的 viewController 必须都遵守 `AquamanChildViewController` 协议，并实现 `func aquamanChildScrollView() -> UIScrollView` 方法
+注意：所提供的 viewController 必须都遵守 `ShazamChildViewController` 协议，并实现 `func shazamChildScrollView() -> UIScrollView` 方法
 
 ```swift
-import Aquaman
-class ChildViewController: UIViewController, AquamanChildViewController {
+import Shazam
+class ChildViewController: UIViewController, ShazamChildViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    func aquamanChildScrollView() -> UIScrollView {
+    func shazamChildScrollView() -> UIScrollView {
         return tableView
     }
     // ...
@@ -81,11 +81,11 @@ class ChildViewController: UIViewController, AquamanChildViewController {
 #### 重写协议方法以提供 headerView 及其高度
 
 ```swift
-override func headerViewFor(_ pageController: AquamanPageViewController) -> UIView {
+override func headerViewFor(_ pageController: ShazamPageViewController) -> UIView {
     return HeaderView()
 }
 
-override func headerViewHeightFor(_ pageController: AquamanPageViewController) -> CGFloat {
+override func headerViewHeightFor(_ pageController: ShazamPageViewController) -> CGFloat {
     return headerViewHeight
 }
 ```
@@ -93,11 +93,11 @@ override func headerViewHeightFor(_ pageController: AquamanPageViewController) -
 #### 重写协议方法以提供 menuView 及其高度
 
 ```swift
-override func menuViewFor(_ pageController: AquamanPageViewController) -> UIView {
+override func menuViewFor(_ pageController: ShazamPageViewController) -> UIView {
     return menuView
 }
 
-override func menuViewHeightFor(_ pageController: AquamanPageViewController) -> CGFloat {
+override func menuViewHeightFor(_ pageController: ShazamPageViewController) -> CGFloat {
     return menuViewHeight
 }
 ```
@@ -107,12 +107,12 @@ override func menuViewHeightFor(_ pageController: AquamanPageViewController) -> 
 #### 更新 menuView 的布局
 
 ```swift
-override func pageController(_ pageController: AquamanPageViewController, contentScrollViewDidScroll scrollView: UIScrollView) {
+override func pageController(_ pageController: ShazamPageViewController, mainScrollViewDidScroll scrollView: UIScrollView) {
     menuView.updateLayout(scrollView)
 }
 
-override func pageController(_ pageController: AquamanPageViewController,
-                             contentScrollViewDidEndScroll scrollView: UIScrollView) {
+override func pageController(_ pageController: ShazamPageViewController,
+                                mainScrollViewDidEndScroll scrollView: UIScrollView) {
     menuView.checkState()
 }
 ```
@@ -123,11 +123,13 @@ override func pageController(_ pageController: AquamanPageViewController,
 
 Follow these 4 steps to run Example project: 
 
-1. Clone Aquaman repository
-2. Run the `pod install` command 
-3. Open Aquaman workspace 
-4. Run the Aquaman-Demo project.
+1. Clone Shazam repository
+2. Run the `pod install` Shazam 
+3. Open Shazam workspace 
+4. Run the Shazam-Demo project.
+
+如果遇到报错把 Scheme 切换到 Shazam 按 Shift + Command + K（Clean Build Folder）再 Command + B（编译），再切回到 Scheme-Demo 运行
 
 ### License
 
-Aquaman is released under the MIT license. See LICENSE for details.
+Shazam is released under the MIT license. See LICENSE for details.

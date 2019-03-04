@@ -146,7 +146,7 @@ class PageViewController: ShazamPageViewController {
     }
     
     override func pageController(_ pageController: ShazamPageViewController, headerView offset: CGPoint, isAdsorption: Bool) {
-        print(offset)
+//        print(offset)
         menuView.backgroundColor = isAdsorption ? .black : .white
         let rate = (UIApplication.shared.statusBarFrame.height * 3.0)
         navBar.alpha = min(-offset.y / rate, 1.0)
