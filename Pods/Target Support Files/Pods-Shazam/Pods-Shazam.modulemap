@@ -1,6 +1,0 @@
-framework module Pods_Shazam {
-  umbrella header "Pods-Shazam-umbrella.h"
-
-  export *
-  module * { export * }
-}
