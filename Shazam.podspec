@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Shazam"
-  s.version          = "0.0.1"
+  s.version          = "0.0.2"
   s.summary          = "An easy solution to nested scrolling"
   s.homepage         = "https://github.com/bawn/Shazam"
   s.license          = { :type => "MIT", :file => "LICENSE" }
@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.platform         = :ios, '9.0'
   s.requires_arc     = true
   s.dependency       "SnapKit"
-  s.source_files     = ["Shazam/Shazam/*.swift", "Shazam/Shazam.h"]
+  s.source_files     = ["Shazam/*.swift", "Shazam/Shazam.h"]
 end
