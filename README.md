@@ -85,12 +85,20 @@ class ChildViewController: UIViewController, ShazamChildViewController {
 #### Provide the headerView and headerView height 
 
 ```swift
-override func headerViewFor(_ pageController: ShazamPageViewController) -> UIView {
+override func headerViewFor(_ pageController: ShazamPageViewController) -> UIView & ShazamHeaderView {
     return HeaderView()
 }
 
 override func headerViewHeightFor(_ pageController: ShazamPageViewController) -> CGFloat {
     return headerViewHeight
+}
+```
+
+The headerView should conform to `ShazamHeaderView` by implementing `func userInteractionViews() -> [UIView]?`
+
+```swift
+func userInteractionViews() -> [UIView]? {
+    return [button]
 }
 ```
 
