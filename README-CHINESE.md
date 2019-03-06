@@ -90,6 +90,14 @@ override func headerViewHeightFor(_ pageController: ShazamPageViewController) ->
 }
 ```
 
+而且 HeaderView 必须遵守 `ShazamHeaderView` 协议，并实现 `func userInteractionViews() -> [UIView]?` 方法 
+
+```swift
+func userInteractionViews() -> [UIView]? {
+    return [button]
+}
+```
+
 #### 重写协议方法以提供 menuView 及其高度
 
 ```swift
