@@ -74,7 +74,7 @@ class PageViewController: ShazamPageViewController {
     }
     
     @objc func buttonAction(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
+        print(#function)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,7 +86,7 @@ class PageViewController: ShazamPageViewController {
     }
 
     
-    override func headerViewFor(_ pageController: ShazamPageViewController) -> UIView {
+    override func headerViewFor(_ pageController: ShazamPageViewController) -> UIView & ShazamHeaderView {
         return headerView
     }
     
@@ -146,12 +146,17 @@ class PageViewController: ShazamPageViewController {
     }
     
     override func pageController(_ pageController: ShazamPageViewController, headerView offset: CGPoint, isAdsorption: Bool) {
-//        print(offset)
         menuView.backgroundColor = isAdsorption ? .black : .white
+        
         let rate = (UIApplication.shared.statusBarFrame.height * 3.0)
         navBar.alpha = min(-offset.y / rate, 1.0)
     }
     
+    override func pageController(_ pageController: ShazamPageViewController, childScrollViewDidScroll scrollView: UIScrollView) {
+        if scrollView.contentOffset.y == 0 {
+            navBar.alpha = 0
+        }
+    }
     
     override func pageController(_ pageController: ShazamPageViewController, willDisplay viewController: (UIViewController & ShazamChildViewController), forItemAt index: Int) {
 

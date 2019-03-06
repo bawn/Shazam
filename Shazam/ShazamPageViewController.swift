@@ -26,7 +26,7 @@
 import UIKit
 import SnapKit
 
-enum ScrollDirection {
+private enum ScrollDirection {
     case up
     case down
     case none
@@ -37,7 +37,7 @@ protocol AMPageControllerDataSource: class {
     
     func pageController(_ pageController: ShazamPageViewController, viewControllerAt index: Int) -> (UIViewController & ShazamChildViewController)
     func numberOfViewControllers(in pageController: ShazamPageViewController) -> Int
-    func headerViewFor(_ pageController: ShazamPageViewController) -> UIView
+    func headerViewFor(_ pageController: ShazamPageViewController) -> UIView & ShazamHeaderView
     func headerViewHeightFor(_ pageController: ShazamPageViewController) -> CGFloat
     func menuViewFor(_ pageController: ShazamPageViewController) -> UIView
     func menuViewHeightFor(_ pageController: ShazamPageViewController) -> CGFloat
@@ -62,6 +62,13 @@ protocol AMPageControllerDelegate: class {
     ///   - scrollView: mainScrollView
     func pageController(_ pageController: ShazamPageViewController, mainScrollViewDidEndScroll scrollView: UIScrollView)
     
+    
+    /// Any offset changes in pageController's childScrollView
+    ///
+    /// - Parameters:
+    ///   - pageController: ShazamPageViewController
+    ///   - scrollView: childScrollView
+    func pageController(_ pageController: ShazamPageViewController, childScrollViewDidScroll scrollView: UIScrollView)
     
     /// Method call when viewController will cache
     ///
@@ -447,7 +454,7 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
     
     open func pageController(_ pageController: ShazamPageViewController, viewControllerAt index: Int) -> (UIViewController & ShazamChildViewController) {
         assertionFailure("Sub-class must implement the AMPageControllerDataSource method")
-        return UIViewController() as! (UIViewController & ShazamChildViewController)
+        return UIViewController() as! UIViewController & ShazamChildViewController
     }
     
     open func numberOfViewControllers(in pageController: ShazamPageViewController) -> Int {
@@ -455,9 +462,9 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
         return 0
     }
     
-    open func headerViewFor(_ pageController: ShazamPageViewController) -> UIView {
+    open func headerViewFor(_ pageController: ShazamPageViewController) -> UIView & ShazamHeaderView {
         assertionFailure("Sub-class must implement the AMPageControllerDataSource method")
-        return UIView()
+        return UIView() as! UIView & ShazamHeaderView
     }
     
     open func headerViewHeightFor(_ pageController: ShazamPageViewController) -> CGFloat {
@@ -488,6 +495,10 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
     
     
     open func pageController(_ pageController: ShazamPageViewController, mainScrollViewDidEndScroll scrollView: UIScrollView) {
+        
+    }
+    
+    open func pageController(_ pageController: ShazamPageViewController, childScrollViewDidScroll scrollView: UIScrollView) {
         
     }
     
@@ -578,5 +589,6 @@ extension ShazamPageViewController {
         }
         let isAdsorption = abs(topView.frame.origin.y) == sillValue
         pageController(self, headerView: topView.frame.origin, isAdsorption: isAdsorption)
+        pageController(self, childScrollViewDidScroll: scrollView)
     }
 }

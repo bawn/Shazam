@@ -42,10 +42,10 @@ class HeaderView: UIView, ShazamHeaderView {
         }
     }
     
-    func userInteractionViews() -> [UIView] {
+    func userInteractionViews() -> [UIView]? {
         return [button]
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }

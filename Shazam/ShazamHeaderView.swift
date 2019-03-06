@@ -10,6 +10,6 @@ import Foundation
 import UIKit
 
 public protocol ShazamHeaderView {
-    func userInteractionViews() -> [UIView]
+    func userInteractionViews() -> [UIView]?
 }
 

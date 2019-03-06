@@ -63,17 +63,18 @@ public class ShazamTopView: UIView {
         if menuContentView.frame.contains(point) {
             return true
         }
-        if let headerView = headerContentView.subviews.first as? ShazamHeaderView {
-            let userInteractionViews = headerView.userInteractionViews()
-            var frames = [CGRect]()
-            userInteractionViews.forEach { (item) in
-                let frame = convert(item.frame, to: self)
-                frames.append(frame)
-            }
-            for item in frames {
-                let value = item.contains(point)
-                return value
-            }
+        guard let headerView = headerContentView.subviews.first as? ShazamHeaderView
+            , let userInteractionViews = headerView.userInteractionViews() else {
+            return false
+        }
+        var frames = [CGRect]()
+        userInteractionViews.forEach { (item) in
+            let frame = convert(item.frame, to: self)
+            frames.append(frame)
+        }
+        for item in frames {
+            let value = item.contains(point)
+            return value
         }
         return false
     }
