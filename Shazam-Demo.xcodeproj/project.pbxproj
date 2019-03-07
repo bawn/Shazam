@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3AD48766E9FD9720EECE84E1 /* Pods_Shazam_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3331F2A2889E34EFE6A2248E /* Pods_Shazam_Demo.framework */; };
+		DF11ABBE2230DFDB00D97FF1 /* Shazam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF11ABBD2230DFDB00D97FF1 /* Shazam.framework */; };
 		DF4E92FD221FFF1300ECDEB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4E92FC221FFF1300ECDEB2 /* AppDelegate.swift */; };
 		DF4E92FF221FFF1300ECDEB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4E92FE221FFF1300ECDEB2 /* ViewController.swift */; };
 		DF4E9302221FFF1300ECDEB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF4E9300221FFF1300ECDEB2 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		3331F2A2889E34EFE6A2248E /* Pods_Shazam_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shazam_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		628512E47EE97318ADF10243 /* Pods-Shazam-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shazam-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shazam-Demo/Pods-Shazam-Demo.release.xcconfig"; sourceTree = "<group>"; };
+		DF11ABBD2230DFDB00D97FF1 /* Shazam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Shazam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF4E92F9221FFF1300ECDEB2 /* Shazam-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shazam-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF4E92FC221FFF1300ECDEB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF4E92FE221FFF1300ECDEB2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF11ABBE2230DFDB00D97FF1 /* Shazam.framework in Frameworks */,
 				3AD48766E9FD9720EECE84E1 /* Pods_Shazam_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,6 +64,7 @@
 		262295EA9F8F472588602B38 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DF11ABBD2230DFDB00D97FF1 /* Shazam.framework */,
 				3331F2A2889E34EFE6A2248E /* Pods_Shazam_Demo.framework */,
 			);
 			name = Frameworks;
