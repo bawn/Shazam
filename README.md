@@ -80,6 +80,19 @@ class ChildViewController: UIViewController, ShazamChildViewController {
 }
 ```
 
+**Note: **The scrollview of ChildViewController must reserve the height of headerView + menuView at the top. For example, in BatmanViewController in Demo, you need to set the height of Header of collectionView.
+
+```swift
+func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        guard let pageViewContoller = szPageViewContoller else {
+            return .zero
+        }
+        let headerViewHeight = pageViewContoller.headerViewHeightFor(pageViewContoller)
+        let menuViewHeight = pageViewContoller.menuViewHeightFor(pageViewContoller)
+        return CGSize(width: collectionView.bounds.width, height: headerViewHeight + menuViewHeight)
+    }
+```
+
 
 
 #### Provide the headerView and headerView height 
