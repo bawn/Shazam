@@ -62,7 +62,7 @@ override func pageController(_ pageController: ShazamPageViewController, viewCon
     
 ```
 
-注意：所提供的 viewController 必须都遵守 `ShazamChildViewController` 协议，并实现 `func shazamChildScrollView() -> UIScrollView` 方法
+所提供的 viewController 必须都遵守 `ShazamChildViewController` 协议，并实现 `func shazamChildScrollView() -> UIScrollView` 方法
 
 ```swift
 import Shazam
@@ -74,6 +74,19 @@ class ChildViewController: UIViewController, ShazamChildViewController {
     }
     // ...
 }
+```
+
+**注意：**ChildViewController 的 scrollview 必须在顶部预留 headerView + menuView 的高度，比如在 Demo 里的 BatmanViewController，就需要设置 collectionView 的 Header 高度
+
+```swift
+func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        guard let pageViewContoller = szPageViewContoller else {
+            return .zero
+        }
+        let headerViewHeight = pageViewContoller.headerViewHeightFor(pageViewContoller)
+        let menuViewHeight = pageViewContoller.menuViewHeightFor(pageViewContoller)
+        return CGSize(width: collectionView.bounds.width, height: headerViewHeight + menuViewHeight)
+    }
 ```
 
 
@@ -135,8 +148,6 @@ Follow these 4 steps to run Example project:
 2. Run the `pod install` Shazam 
 3. Open Shazam workspace 
 4. Run the Shazam-Demo project.
-
-如果遇到报错把 Scheme 切换到 Shazam 按 Shift + Command + K（Clean Build Folder）再 Command + B（编译），再切回到 Scheme-Demo 运行
 
 ### License
 
