@@ -83,6 +83,34 @@ class MenuView: UIView {
         initialize()
     }
     
+    func update(parts: MenuStyle...) {
+        update(parts)
+        stackView.arrangedSubviews.forEach { (item) in
+            guard let item = item as? MenuItemView else {
+                return
+            }
+            item.update(textFont, normalTextColor, selectedTextColor)
+        }
+        progressView.backgroundColor = progressColor
+        progressView.snp.updateConstraints({$0.height.equalTo(progressHeight)})
+    }
+    
+    private func update(_ parts: [MenuStyle]) {
+        for part in parts {
+            switch part {
+            case .textFont(let font):
+                textFont = font
+            case .normalTextColor(let color):
+                normalTextColor = color
+            case .selectedTextColor(let color):
+                selectedTextColor = color
+            case .progressColor(let color):
+                progressColor = color
+            case .progressHeight(let height):
+                progressHeight = height
+            }
+        }
+    }
     
     private var scrollRate: CGFloat = 0.0 {
         didSet {
@@ -250,8 +278,9 @@ class MenuView: UIView {
             , let currentLabel = currentLabel else {
             return
         }
-        menuItemViews.forEach({$0.textColor = normalTextColor})
+        menuItemViews.forEach({$0.textColor = normalTextColor;$0.isSelected = false})
         menuItemViews[currentIndex].textColor = selectedTextColor
+        menuItemViews[currentIndex].isSelected = true
         scrollView.scrollToSuitable(currentLabel)
     }
 }

@@ -146,16 +146,20 @@ class PageViewController: ShazamPageViewController {
     }
     
     override func pageController(_ pageController: ShazamPageViewController, headerView offset: CGPoint, isAdsorption: Bool) {
-        menuView.backgroundColor = isAdsorption ? .black : .white
         
         let rate = (UIApplication.shared.statusBarFrame.height * 3.0)
         navBar.alpha = min(-offset.y / rate, 1.0)
+        navBar.backgroundColor = isAdsorption ? .blue : .white
     }
     
     override func pageController(_ pageController: ShazamPageViewController, childScrollViewDidScroll scrollView: UIScrollView) {
         if scrollView.contentOffset.y == 0 {
             navBar.alpha = 0
         }
+    }
+
+    override func keepChildScrollViewOffset(_ pageController: ShazamPageViewController) -> Bool {
+        return true
     }
     
     override func pageController(_ pageController: ShazamPageViewController, willDisplay viewController: (UIViewController & ShazamChildViewController), forItemAt index: Int) {

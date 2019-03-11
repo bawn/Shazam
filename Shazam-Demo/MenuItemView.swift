@@ -28,6 +28,7 @@ import UIKit
 class MenuItemView: UILabel {
     var normalColors = UIColor.white.rgb
     var selectedColors = UIColor.white.rgb
+    var isSelected = false
     
     var rate: CGFloat = 0.0 {
         didSet {
@@ -48,6 +49,16 @@ class MenuItemView: UILabel {
         self.font = textFont
         normalColors = normalTextColor.rgb
         selectedColors = selectedTextColor.rgb
+    }
+    
+    func update(_ textFont: UIFont,
+                _ normalTextColor: UIColor,
+                _ selectedTextColor: UIColor) {
+        
+        font = textFont
+        normalColors = normalTextColor.rgb
+        selectedColors = selectedTextColor.rgb
+        textColor = isSelected ? selectedTextColor : normalTextColor
     }
     
     required init?(coder aDecoder: NSCoder) {
