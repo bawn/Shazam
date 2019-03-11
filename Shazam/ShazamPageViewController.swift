@@ -43,6 +43,7 @@ protocol AMPageControllerDataSource: class {
     func menuViewHeightFor(_ pageController: ShazamPageViewController) -> CGFloat
     func menuViewPinHeightFor(_ pageController: ShazamPageViewController) -> CGFloat
     func originIndexFor(_ pageController: ShazamPageViewController) -> Int
+    func keepChildScrollViewOffset(_ pageController: ShazamPageViewController) -> Bool
 }
 
 protocol AMPageControllerDelegate: class {
@@ -149,10 +150,7 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
     private var containViews = [ShazamContainView]()
     private var currentChildScrollView: UIScrollView?
     private var childScrollViews = [UIScrollView]()
-    private var currentOffset = CGPoint.zero
     private var isBeginDragging = false
-    private var topInset: CGFloat = 64.0
-    private var topGuide = ConstraintLayoutGuide()
     
     private var topViewLastOffset: CGFloat = 0.0
     private var childScrollDirection = ScrollDirection.none
@@ -161,7 +159,6 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
     
     private var childScrollOffset: CGFloat = 0.0 {
         didSet {
-            
             if oldValue > childScrollOffset {
                 childScrollDirection = .down
             } else if oldValue < childScrollOffset {
@@ -210,24 +207,7 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
             didDisplayViewController(at: originIndex)
         }
     }
-    
-    open override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        mainScrollView.isScrollEnabled = true
         
-        if #available(iOS 11.0, *) {
-            topInset = currentChildScrollView?.adjustedContentInset.top ?? 0.0
-        } else {
-            topInset = currentViewController?.topLayoutGuide.length ?? 0.0
-        }
-    }
-    
-    
-    open override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        mainScrollView.isScrollEnabled = false
-    }
-    
     private func didDisplayViewController(at index: Int) {
         guard childControllerCount > 0
             , index >= 0
@@ -379,11 +359,13 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
         
         if scrollView.contentOffset.y <= sillValue {
             scrollView.setContentOffset(CGPoint(x: 0, y: -topView.frame.origin.y), animated: false)
+        } else if keepChildScrollViewOffset(self) == false && abs(topView.frame.origin.y) < sillValue {
+            scrollView.setContentOffset(CGPoint(x: 0, y: -topView.frame.origin.y), animated: false)
         }
         childScrollOffset = scrollView.contentOffset.y
         topViewLastOffset = -topView.frame.origin.y
         let offsetY = scrollView.contentOffset.y
-        isSpecialState = offsetY > abs(topView.frame.origin.y)
+        isSpecialState = keepChildScrollViewOffset(self) && offsetY > abs(topView.frame.origin.y)
     }
     
     
@@ -488,6 +470,10 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
     
     open func menuViewPinHeightFor(_ pageController: ShazamPageViewController) -> CGFloat {
         return 0
+    }
+    
+    open func keepChildScrollViewOffset(_ pageController: ShazamPageViewController) -> Bool {
+        return false
     }
     
     open func pageController(_ pageController: ShazamPageViewController, mainScrollViewDidScroll scrollView: UIScrollView) {
