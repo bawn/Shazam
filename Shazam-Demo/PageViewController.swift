@@ -159,7 +159,7 @@ class PageViewController: ShazamPageViewController {
     }
 
     override func keepChildScrollViewOffset(_ pageController: ShazamPageViewController) -> Bool {
-        return true
+        return selectedIndex == 0 ? true : false
     }
     
     override func pageController(_ pageController: ShazamPageViewController, willDisplay viewController: (UIViewController & ShazamChildViewController), forItemAt index: Int) {
