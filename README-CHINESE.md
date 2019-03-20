@@ -76,7 +76,7 @@ class ChildViewController: UIViewController, ShazamChildViewController {
 }
 ```
 
-**注意：**ChildViewController 的 scrollview 必须在顶部预留 headerView + menuView 的高度，比如在 Demo 里的 BatmanViewController，就需要设置 collectionView 的 Header 高度
+**注意：ChildViewController 的 scrollview 必须在顶部预留 headerView + menuView 的高度，比如在 Demo 里的 BatmanViewController，就需要设置 collectionView 的 Header 高度**
 
 ```swift
 func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
