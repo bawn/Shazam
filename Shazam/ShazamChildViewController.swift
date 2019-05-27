@@ -26,8 +26,6 @@
 import Foundation
 import UIKit
 
-public protocol ShazamChildViewController {
+public protocol ShazamChildViewController where Self: UIViewController {
     func shazamChildScrollView() -> UIScrollView
 }
-
-extension ShazamChildViewController where Self: UIViewController {}

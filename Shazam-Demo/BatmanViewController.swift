@@ -32,7 +32,7 @@ class BatmanViewController: UIViewController, ShazamChildViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        collectionView.alwaysBounceVertical = true
         if selectedIndex == 0 {
             if #available(iOS 11.0, *) {
                 collectionView.contentInsetAdjustmentBehavior = .never
@@ -55,7 +55,7 @@ class BatmanViewController: UIViewController, ShazamChildViewController {
 extension BatmanViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 40
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
