@@ -29,7 +29,6 @@ import MJRefresh
 
 class SupermanViewController: UIViewController, ShazamChildViewController {
     
-    
     @IBOutlet weak var tableView: UITableView!
     var selectedIndex = 0
     
