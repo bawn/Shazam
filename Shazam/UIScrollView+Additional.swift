@@ -32,8 +32,7 @@ private struct AssociatedKeys {
 }
 
 extension UIScrollView {
-    
-    var sz_lastOffsetY: CGFloat {
+    internal var sz_lastOffsetY: CGFloat {
         get {
             return (objc_getAssociatedObject(self, &AssociatedKeys.SZLastOffsetY) as? CGFloat) ?? 0.0
         }

@@ -34,7 +34,6 @@ class SupermanViewController: UIViewController, ShazamChildViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if selectedIndex == 0 {
             if #available(iOS 11.0, *) {
                 tableView.contentInsetAdjustmentBehavior = .never

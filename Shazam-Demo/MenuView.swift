@@ -237,6 +237,16 @@ class MenuView: UIView {
             make.centerX.equalTo(scrollView.snp.leading).offset(0)
             make.bottom.equalToSuperview()
         }
+        
+        layer.shadowRadius = 4
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 4)
+        layer.shadowOpacity = 0.05
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.shadowPath = UIBezierPath(rect: bounds).cgPath
     }
     
     func clear() {
@@ -260,7 +270,14 @@ class MenuView: UIView {
         }
         let scrollViewWidth = externalScrollView.bounds.width
         let offsetX = externalScrollView.contentOffset.x
-        currentIndex = Int(offsetX / scrollViewWidth)
+        
+        let index = Int(offsetX / scrollViewWidth)
+        guard index >= 0, index < titles.count else {
+            return
+        }
+        
+        currentIndex = index
+        
         scrollRate = max((offsetX - CGFloat(currentIndex) * scrollViewWidth) / scrollViewWidth, 0)
 
         let currentWidth = stackView.arrangedSubviews[currentIndex].bounds.width
@@ -278,6 +295,7 @@ class MenuView: UIView {
             , let currentLabel = currentLabel else {
             return
         }
+        
         menuItemViews.forEach({$0.textColor = normalTextColor;$0.isSelected = false})
         menuItemViews[currentIndex].textColor = selectedTextColor
         menuItemViews[currentIndex].isSelected = true

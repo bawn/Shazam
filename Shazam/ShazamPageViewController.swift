@@ -223,6 +223,15 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
         currentChildScrollView = currentViewController?.shazamChildScrollView()
         currentIndex = index
         
+        childScrollViewObservation?.invalidate()
+        let keyValueObservation = currentChildScrollView?.observe(\.contentOffset, options: [.new, .old], changeHandler: { [weak self] (scrollView, change) in
+            guard let self = self, change.newValue != change.oldValue else {
+                return
+            }
+            self.childScrollViewDidScroll(scrollView)
+        })
+        childScrollViewObservation = keyValueObservation
+        
         if let viewController = containView.viewController {
             pageController(self, didDisplay: viewController, forItemAt: index)
         }
@@ -275,6 +284,9 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
     }
     
     private func clear() {
+        
+        childScrollViewObservation?.invalidate()
+        
         originIndex = 0
         
         childControllerCount = 0
@@ -350,15 +362,6 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
         
         let scrollView = targetViewController.shazamChildScrollView()
         scrollView.sz_lastOffsetY = scrollView.contentOffset.y
-        
-        childScrollViewObservation?.invalidate()
-        let keyValueObservation = scrollView.observe(\.contentOffset, options: [.new, .old], changeHandler: { [weak self] (scrollView, change) in
-            guard let self = self, change.newValue != change.oldValue else {
-                return
-            }
-            self.childScrollViewDidScroll(scrollView)
-        })
-        childScrollViewObservation = keyValueObservation
         
         if scrollView.contentOffset.y <= sillValue {
             scrollView.setContentOffset(CGPoint(x: 0, y: -topView.frame.origin.y), animated: false)
