@@ -15,4 +15,5 @@ target 'Shazam-Demo' do
     use_frameworks!
     pod 'SnapKit'
     pod 'MJRefresh'
+    pod 'Reveal-SDK',    '22', :configurations => ['Debug']
 end

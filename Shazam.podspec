@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Shazam"
-  s.version          = "0.0.5"
+  s.version          = "0.0.6"
   s.summary          = "An easy solution to nested scrolling"
   s.homepage         = "https://github.com/bawn/Shazam"
   s.license          = { :type => "MIT", :file => "LICENSE" }

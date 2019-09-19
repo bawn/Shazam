@@ -1,20 +1,24 @@
 PODS:
   - MJRefresh (3.1.15.7)
+  - Reveal-SDK (22)
   - SnapKit (4.2.0)
 
 DEPENDENCIES:
   - MJRefresh
+  - Reveal-SDK (= 22)
   - SnapKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - MJRefresh
+    - Reveal-SDK
     - SnapKit
 
 SPEC CHECKSUMS:
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
+  Reveal-SDK: 1385ab77aa15e9a3e21f798c74bd8e94cb54c651
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 4a02225439aa79bf93b06cabd6093e97054bd900
+PODFILE CHECKSUM: e2d188eb6583b65c21dcb995c42923d320201e7e
 
-COCOAPODS: 1.7.0
+COCOAPODS: 1.7.1
