@@ -191,13 +191,6 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if #available(iOS 11.0, *) {
-            mainScrollView.contentInsetAdjustmentBehavior = .never
-        } else {
-            automaticallyAdjustsScrollViewInsets = false
-        }
-        
         obtainDataSource()
         setupOriginContent()
         setupDataSource()
@@ -222,15 +215,6 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
         currentViewController = containView.viewController
         currentChildScrollView = currentViewController?.shazamChildScrollView()
         currentIndex = index
-        
-        childScrollViewObservation?.invalidate()
-        let keyValueObservation = currentChildScrollView?.observe(\.contentOffset, options: [.new, .old], changeHandler: { [weak self] (scrollView, change) in
-            guard let self = self, change.newValue != change.oldValue else {
-                return
-            }
-            self.childScrollViewDidScroll(scrollView)
-        })
-        childScrollViewObservation = keyValueObservation
         
         if let viewController = containView.viewController {
             pageController(self, didDisplay: viewController, forItemAt: index)
@@ -258,6 +242,11 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
     private func setupOriginContent() {
         
         view.addSubview(mainScrollView)
+        if #available(iOS 11.0, *) {
+            mainScrollView.contentInsetAdjustmentBehavior = .never
+        } else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
         mainScrollView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
@@ -372,6 +361,15 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
         topViewLastOffset = -topView.frame.origin.y
         let offsetY = scrollView.contentOffset.y
         isSpecialState = keepChildScrollViewOffset(self) && offsetY > abs(topView.frame.origin.y)
+        
+        childScrollViewObservation?.invalidate()
+        let keyValueObservation = scrollView.observe(\.contentOffset, options: [.new, .old], changeHandler: { [weak self] (scrollView, change) in
+            guard let self = self, change.newValue != change.oldValue else {
+                return
+            }
+            self.childScrollViewDidScroll(scrollView)
+        })
+        childScrollViewObservation = keyValueObservation
     }
     
     
