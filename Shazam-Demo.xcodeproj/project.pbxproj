@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,10 +19,6 @@
 		DF4E93302220013000ECDEB2 /* WonderWomanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4E932D2220013000ECDEB2 /* WonderWomanViewController.swift */; };
 		DF4E93312220013000ECDEB2 /* SupermanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4E932E2220013000ECDEB2 /* SupermanViewController.swift */; };
 		DF4E93322220013000ECDEB2 /* BatmanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4E932F2220013000ECDEB2 /* BatmanViewController.swift */; };
-		DF4E93352220039400ECDEB2 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4E93332220039400ECDEB2 /* MenuView.swift */; };
-		DF4E93362220039400ECDEB2 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4E93342220039400ECDEB2 /* MenuItemView.swift */; };
-		DF4E93382220039D00ECDEB2 /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4E93372220039D00ECDEB2 /* UIColor+RGB.swift */; };
-		DF4E933A222003AA00ECDEB2 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4E9339222003AA00ECDEB2 /* UIScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,10 +37,6 @@
 		DF4E932D2220013000ECDEB2 /* WonderWomanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WonderWomanViewController.swift; sourceTree = "<group>"; };
 		DF4E932E2220013000ECDEB2 /* SupermanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupermanViewController.swift; sourceTree = "<group>"; };
 		DF4E932F2220013000ECDEB2 /* BatmanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatmanViewController.swift; sourceTree = "<group>"; };
-		DF4E93332220039400ECDEB2 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
-		DF4E93342220039400ECDEB2 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
-		DF4E93372220039D00ECDEB2 /* UIColor+RGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+RGB.swift"; sourceTree = "<group>"; };
-		DF4E9339222003AA00ECDEB2 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		EFD61C808D23695D9BD2D14F /* Pods-Shazam-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shazam-Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shazam-Demo/Pods-Shazam-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,10 +90,6 @@
 				DF4E932F2220013000ECDEB2 /* BatmanViewController.swift */,
 				DF4E932E2220013000ECDEB2 /* SupermanViewController.swift */,
 				DF4E932D2220013000ECDEB2 /* WonderWomanViewController.swift */,
-				DF4E93342220039400ECDEB2 /* MenuItemView.swift */,
-				DF4E93332220039400ECDEB2 /* MenuView.swift */,
-				DF4E93372220039D00ECDEB2 /* UIColor+RGB.swift */,
-				DF4E9339222003AA00ECDEB2 /* UIScrollView.swift */,
 				DF4E9300221FFF1300ECDEB2 /* Main.storyboard */,
 				DF4E9303221FFF1400ECDEB2 /* Assets.xcassets */,
 				DF4E9305221FFF1400ECDEB2 /* LaunchScreen.storyboard */,
@@ -235,15 +223,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF4E93302220013000ECDEB2 /* WonderWomanViewController.swift in Sources */,
-				DF4E93382220039D00ECDEB2 /* UIColor+RGB.swift in Sources */,
 				DF4E932A2220011800ECDEB2 /* PageViewController.swift in Sources */,
 				DF4E92FF221FFF1300ECDEB2 /* ViewController.swift in Sources */,
 				DF4E92FD221FFF1300ECDEB2 /* AppDelegate.swift in Sources */,
-				DF4E93352220039400ECDEB2 /* MenuView.swift in Sources */,
 				DF4E932C2220012500ECDEB2 /* HeaderView.swift in Sources */,
 				DF4E93322220013000ECDEB2 /* BatmanViewController.swift in Sources */,
-				DF4E93362220039400ECDEB2 /* MenuItemView.swift in Sources */,
-				DF4E933A222003AA00ECDEB2 /* UIScrollView.swift in Sources */,
 				DF4E93312220013000ECDEB2 /* SupermanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

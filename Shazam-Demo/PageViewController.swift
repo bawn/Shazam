@@ -25,18 +25,34 @@
 
 import UIKit
 import Shazam
+import Trident
 
 class PageViewController: ShazamPageViewController {
 
     let navBar = UIView()
     let headerView = HeaderView()
-    let menuView = MenuView(parts:
-        .normalTextColor(UIColor.gray),
-        .selectedTextColor(UIColor.blue),
-        .textFont(UIFont.systemFont(ofSize: 15.0)),
-        .progressColor(UIColor.blue),
-        .progressHeight(2)
-    )
+    lazy var menuView: TridentMenuView = {
+        let view = TridentMenuView(parts:
+            .normalTextColor(UIColor.gray),
+            .selectedTextColor(UIColor.blue),
+            .textFont(UIFont.systemFont(ofSize: 15.0)),
+            .switchStyle(.line),
+            .sliderStyle(
+                SliderViewStyle(parts:
+                    .backgroundColor(.blue),
+                    .height(3.0),
+                    .cornerRadius(1.5),
+                    .position(.bottom),
+                    .extraWidth(4.0),
+                    .originWidth(30.0),
+                    .shape(.line),
+                    .elasticValue(1.2)
+                )
+            )
+        )
+        view.delegate = self
+        return view
+    }()
     var count = 3
     var headerViewHeight: CGFloat = 200.0
     var menuViewHeight: CGFloat = 44.0
@@ -47,7 +63,7 @@ class PageViewController: ShazamPageViewController {
         
         view.backgroundColor = .white
         headerView.button.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
-        
+        menuView.contentInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
         
         if selectedIndex == 0 {
             if #available(iOS 11.0, *) {
@@ -142,7 +158,7 @@ class PageViewController: ShazamPageViewController {
     
     override func pageController(_ pageController: ShazamPageViewController,
                                  mainScrollViewDidEndScroll scrollView: UIScrollView) {
-        menuView.checkState()
+        menuView.checkState(animation: true)
     }
     
     override func pageController(_ pageController: ShazamPageViewController, headerView offset: CGPoint, isAdsorption: Bool) {
@@ -176,7 +192,7 @@ class PageViewController: ShazamPageViewController {
 
 
 extension PageViewController: MenuViewDelegate {
-    func menuView(_ menuView: MenuView, didSelectedItemAt index: Int) {
+    func menuView(_ menuView: TridentMenuView, didSelectedItemAt index: Int) {
         guard index < count else {
             return
         }
