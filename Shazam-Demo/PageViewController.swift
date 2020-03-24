@@ -35,7 +35,8 @@ class PageViewController: ShazamPageViewController {
         let view = TridentMenuView(parts:
             .normalTextColor(UIColor.gray),
             .selectedTextColor(UIColor.blue),
-            .textFont(UIFont.systemFont(ofSize: 15.0)),
+            .normalTextFont(UIFont.systemFont(ofSize: 15, weight: .regular)),
+            .selectedTextFont(UIFont.systemFont(ofSize: 15, weight: .medium)),
             .switchStyle(.line),
             .sliderStyle(
                 SliderViewStyle(parts:
@@ -191,7 +192,7 @@ class PageViewController: ShazamPageViewController {
 }
 
 
-extension PageViewController: MenuViewDelegate {
+extension PageViewController: TridentMenuViewDelegate {
     func menuView(_ menuView: TridentMenuView, didSelectedItemAt index: Int) {
         guard index < count else {
             return
