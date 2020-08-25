@@ -24,7 +24,6 @@
 //  THE SOFTWARE.
 
 import UIKit
-import SnapKit
 
 private enum ScrollDirection {
     case up
@@ -156,6 +155,7 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
     private var childScrollDirection = ScrollDirection.none
     private var isSpecialState = false
     private var childScrollViewObservation: NSKeyValueObservation?
+    private var topViewTopLayout: NSLayoutConstraint?
     
     private var childScrollOffset: CGFloat = 0.0 {
         didSet {
@@ -247,23 +247,29 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
         } else {
             automaticallyAdjustsScrollViewInsets = false
         }
-        mainScrollView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
+        
+        mainScrollView.translatesAutoresizingMaskIntoConstraints = false
+        mainScrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        mainScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        mainScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        mainScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         mainScrollView.addSubview(contentStackView)
         
-        contentStackView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-            make.height.equalToSuperview()
-        }
+        contentStackView.translatesAutoresizingMaskIntoConstraints = false
+        contentStackView.topAnchor.constraint(equalTo: mainScrollView.topAnchor).isActive = true
+        contentStackView.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor).isActive = true
+        contentStackView.trailingAnchor.constraint(equalTo: mainScrollView.trailingAnchor).isActive = true
+        contentStackView.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor).isActive = true
+        contentStackView.heightAnchor.constraint(equalTo: mainScrollView.heightAnchor).isActive = true
         
         view.addSubview(topView)
-        topView.snp.makeConstraints { (make) in
-            make.top.equalTo(topLayoutGuide.snp.top)
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-        }
+        topView.translatesAutoresizingMaskIntoConstraints = false
+        topViewTopLayout = topView.topAnchor.constraint(equalTo: topLayoutGuide.topAnchor)
+        topViewTopLayout?.isActive = true
+        topView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        topView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        
         topView.updateLayout(headerViewHeight, menuViewHeight)
     }
     
@@ -298,21 +304,28 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
         
         if let headerView = headerView {
             topView.headerContentView.addSubview(headerView)
-            headerView.snp.makeConstraints({$0.edges.equalToSuperview()})
+            headerView.translatesAutoresizingMaskIntoConstraints = false
+            headerView.topAnchor.constraint(equalTo: topView.headerContentView.topAnchor).isActive = true
+            headerView.leadingAnchor.constraint(equalTo: topView.headerContentView.leadingAnchor).isActive = true
+            headerView.trailingAnchor.constraint(equalTo: topView.headerContentView.trailingAnchor).isActive = true
+            headerView.bottomAnchor.constraint(equalTo: topView.headerContentView.bottomAnchor).isActive = true
         }
         
         if let menuView = menuView {
             topView.menuContentView.addSubview(menuView)
-            menuView.snp.makeConstraints({$0.edges.equalToSuperview()})
+            menuView.translatesAutoresizingMaskIntoConstraints = false
+            menuView.topAnchor.constraint(equalTo: topView.menuContentView.topAnchor).isActive = true
+            menuView.leadingAnchor.constraint(equalTo: topView.menuContentView.leadingAnchor).isActive = true
+            menuView.trailingAnchor.constraint(equalTo: topView.menuContentView.trailingAnchor).isActive = true
+            menuView.bottomAnchor.constraint(equalTo: topView.menuContentView.bottomAnchor).isActive = true
         }
         
         countArray.forEach { (_) in
             let containView = ShazamContainView()
             contentStackView.addArrangedSubview(containView)
-            containView.snp.makeConstraints({ (make) in
-                make.width.equalTo(view)
-                make.height.equalToSuperview()
-            })
+            containView.translatesAutoresizingMaskIntoConstraints = false
+            containView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+            containView.heightAnchor.constraint(equalTo: contentStackView.heightAnchor).isActive = true
             containViews.append(containView)
         }
     }
@@ -342,7 +355,13 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
         targetViewController.beginAppearanceTransition(true, animated: false)
         addChild(targetViewController)
         containView.addSubview(targetViewController.view)
-        targetViewController.view.snp.makeConstraints({$0.edges.equalToSuperview()})
+//        targetViewController.view.snp.makeConstraints({$0.edges.equalToSuperview()})
+        targetViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        targetViewController.view.topAnchor.constraint(equalTo: containView.topAnchor).isActive = true
+        targetViewController.view.leadingAnchor.constraint(equalTo: containView.leadingAnchor).isActive = true
+        targetViewController.view.trailingAnchor.constraint(equalTo: containView.trailingAnchor).isActive = true
+        targetViewController.view.bottomAnchor.constraint(equalTo: containView.bottomAnchor).isActive = true
+        
         targetViewController.view.layoutIfNeeded()
         targetViewController.didMove(toParent: self)
         targetViewController.endAppearanceTransition()
@@ -562,9 +581,7 @@ extension ShazamPageViewController {
             let value = offsetY - scrollView.sz_lastOffsetY
             let offset = min(value + topViewLastOffset, sillValue)
             if childScrollDirection == .up {
-                topView.snp.updateConstraints { (make) in
-                    make.top.equalTo(topLayoutGuide.snp.top).offset(-offset)
-                }
+                topViewTopLayout?.constant = -offset
             } else {
                 topViewLastOffset = -(topView.frame.origin.y)
                 scrollView.sz_lastOffsetY = offsetY
@@ -573,9 +590,7 @@ extension ShazamPageViewController {
             
             scrollView.sz_lastOffsetY = 0
             let offset = min(offsetY, sillValue)
-            topView.snp.updateConstraints { (make) in
-                make.top.equalTo(topLayoutGuide.snp.top).offset(-offset)
-            }
+            topViewTopLayout?.constant = -offset
         }
         let isAdsorption = abs(topView.frame.origin.y) == sillValue
         pageController(self, headerView: topView.frame.origin, isAdsorption: isAdsorption)

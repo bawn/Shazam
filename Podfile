@@ -6,7 +6,6 @@ workspace './Shazam.xcworkspace'
 target 'Shazam' do
     project './Shazam'
   use_frameworks!
-  pod 'SnapKit'
 
 end
 
