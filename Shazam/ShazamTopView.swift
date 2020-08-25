@@ -7,51 +7,43 @@
 //
 
 import UIKit
-import SnapKit
 
 public class ShazamTopView: UIView {
     let headerContentView = UIView()
     let menuContentView = UIView()
+    var heightLayout: NSLayoutConstraint?
+    var headerHeightLayout: NSLayoutConstraint?
+    var menuHeightLayout: NSLayoutConstraint?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        snp.makeConstraints { (make) in
-            make.height.equalTo(0)
-        }
-        
+        translatesAutoresizingMaskIntoConstraints = false
+        heightLayout = heightAnchor.constraint(equalToConstant: 0)
+        heightLayout?.isActive = true
         
         addSubview(headerContentView)
-        headerContentView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview()
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.height.equalTo(0)
-        }
+        headerContentView.translatesAutoresizingMaskIntoConstraints = false
+        headerContentView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        headerContentView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        headerContentView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        headerHeightLayout = headerContentView.heightAnchor.constraint(equalToConstant: 0)
+        headerHeightLayout?.isActive = true
         
         addSubview(menuContentView)
-        menuContentView.snp.makeConstraints { (make) in
-            make.top.equalTo(headerContentView.snp.bottom)
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
-            make.height.equalTo(0)
-        }
+        menuContentView.translatesAutoresizingMaskIntoConstraints = false
+        menuContentView.topAnchor.constraint(equalTo: headerContentView.bottomAnchor).isActive = true
+        menuContentView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        menuContentView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        menuContentView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        menuHeightLayout = menuContentView.heightAnchor.constraint(equalToConstant: 0)
+        menuHeightLayout?.isActive = true
     }
     
     func updateLayout(_ headerViewHeight: CGFloat, _ menuViewHeight: CGFloat) {
-        
-        headerContentView.snp.updateConstraints { (make) in
-            make.height.equalTo(headerViewHeight)
-        }
-        
-        menuContentView.snp.updateConstraints { (make) in
-            make.height.equalTo(menuViewHeight)
-        }
-        
-        snp.updateConstraints { (make) in
-            make.height.equalTo(headerViewHeight + menuViewHeight)
-        }
+        headerHeightLayout?.constant = headerViewHeight
+        menuHeightLayout?.constant = menuViewHeight
+        heightLayout?.constant = headerViewHeight + menuViewHeight
     }
     
     
