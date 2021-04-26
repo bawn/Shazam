@@ -1,13 +1,13 @@
 PODS:
   - MJRefresh (3.3.1)
-  - Reveal-SDK (22)
+  - Reveal-SDK (27)
   - SnapKit (4.2.0)
-  - Trident (0.2.0):
+  - Trident (0.3.0):
     - SnapKit (~> 4.2.0)
 
 DEPENDENCIES:
   - MJRefresh
-  - Reveal-SDK (= 22)
+  - Reveal-SDK (= 27)
   - SnapKit
   - Trident
 
@@ -20,10 +20,10 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
-  Reveal-SDK: 1385ab77aa15e9a3e21f798c74bd8e94cb54c651
+  Reveal-SDK: 306e2880395ee396f5a8b4c485c3a86dd19866c7
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
-  Trident: 14e683315534b414215a1cf84ef990f378f827fc
+  Trident: 76516f68f7d1e267b09d4fd0f02badba5ad56582
 
-PODFILE CHECKSUM: 84f910e59aa8a9d8f28a94c88b25be4381ef146f
+PODFILE CHECKSUM: 8e005d863a1255d6bc0a9f81f145a8d3a9d9b45c
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.3

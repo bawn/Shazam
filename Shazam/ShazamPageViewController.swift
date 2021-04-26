@@ -341,6 +341,7 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
         let containView = containViews[index]
         
         guard containView.isEmpty else {
+            addScrollViewObservation(containView)
             return
         }
         
@@ -355,7 +356,7 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
         targetViewController.beginAppearanceTransition(true, animated: false)
         addChild(targetViewController)
         containView.addSubview(targetViewController.view)
-//        targetViewController.view.snp.makeConstraints({$0.edges.equalToSuperview()})
+
         targetViewController.view.translatesAutoresizingMaskIntoConstraints = false
         targetViewController.view.topAnchor.constraint(equalTo: containView.topAnchor).isActive = true
         targetViewController.view.leadingAnchor.constraint(equalTo: containView.leadingAnchor).isActive = true
@@ -381,8 +382,17 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
         let offsetY = scrollView.contentOffset.y
         isSpecialState = keepChildScrollViewOffset(self) && offsetY > abs(topView.frame.origin.y)
         
+        addScrollViewObservation(containView)
+    }
+    
+    func addScrollViewObservation(_ containView: ShazamContainView) {
+        
+        guard let scrollView = containView.viewController?.shazamChildScrollView() else {
+            return
+        }
+        
         childScrollViewObservation?.invalidate()
-        let keyValueObservation = scrollView.observe(\.contentOffset, options: [.new, .old], changeHandler: { [weak self] (scrollView, change) in
+        let keyValueObservation = scrollView.observe(\.contentOffset, options: [.new, .old, .initial], changeHandler: { [weak self] (scrollView, change) in
             guard let self = self, change.newValue != change.oldValue else {
                 return
             }
@@ -390,7 +400,6 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
         })
         childScrollViewObservation = keyValueObservation
     }
-    
     
     func removeChildViewController(at index: Int) {
         guard childControllerCount > 0
@@ -409,7 +418,7 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
         
         if memoryCache[index] == nil {
             pageController(self, willCache: viewController, forItemAt: index)
-            memoryCache[index] = viewController // 缓存VC
+            memoryCache[index] = viewController
         }
     }
     

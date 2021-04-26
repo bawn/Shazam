@@ -15,5 +15,5 @@ target 'Shazam-Demo' do
     pod 'SnapKit'
     pod 'MJRefresh'
     pod 'Trident'
-    pod 'Reveal-SDK',    '22', :configurations => ['Debug']
+    pod 'Reveal-SDK',    '27', :configurations => ['Debug']
 end
