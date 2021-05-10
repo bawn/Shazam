@@ -341,7 +341,7 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
         let containView = containViews[index]
         
         guard containView.isEmpty else {
-            addScrollViewObservation(containView)
+            updateSatae(containView)
             return
         }
         
@@ -369,11 +369,20 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
         
         containView.viewController = targetViewController
         
-        let scrollView = targetViewController.shazamChildScrollView()
+        updateSatae(containView)
+    }
+    
+    func updateSatae(_ containView: ShazamContainView) {
+        
+        guard let scrollView = containView.viewController?.shazamChildScrollView() else {
+            return
+        }
+        
         scrollView.sz_lastOffsetY = scrollView.contentOffset.y
         
+        
         if scrollView.contentOffset.y <= sillValue {
-            scrollView.setContentOffset(CGPoint(x: 0, y: -topView.frame.origin.y), animated: false)
+            scrollView.setContentOffset(CGPoint(x: 0, y: -min(topView.frame.origin.y, 0)), animated: false)
         } else if keepChildScrollViewOffset(self) == false && abs(topView.frame.origin.y) < sillValue {
             scrollView.setContentOffset(CGPoint(x: 0, y: -topView.frame.origin.y), animated: false)
         }
@@ -382,14 +391,6 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
         let offsetY = scrollView.contentOffset.y
         isSpecialState = keepChildScrollViewOffset(self) && offsetY > abs(topView.frame.origin.y)
         
-        addScrollViewObservation(containView)
-    }
-    
-    func addScrollViewObservation(_ containView: ShazamContainView) {
-        
-        guard let scrollView = containView.viewController?.shazamChildScrollView() else {
-            return
-        }
         
         childScrollViewObservation?.invalidate()
         let keyValueObservation = scrollView.observe(\.contentOffset, options: [.new, .old, .initial], changeHandler: { [weak self] (scrollView, change) in
@@ -409,17 +410,17 @@ open class ShazamPageViewController: UIViewController, AMPageControllerDataSourc
                 return
         }
         
-        let containView = containViews[index]
-        guard containView.isEmpty == false
-            , let viewController = containView.viewController else {
-                return
-        }
-        viewController.clearFromParent()
-        
-        if memoryCache[index] == nil {
-            pageController(self, willCache: viewController, forItemAt: index)
-            memoryCache[index] = viewController
-        }
+//        let containView = containViews[index]
+//        guard containView.isEmpty == false
+//            , let viewController = containView.viewController else {
+//                return
+//        }
+//        viewController.clearFromParent()
+//
+//        if memoryCache[index] == nil {
+//            pageController(self, willCache: viewController, forItemAt: index)
+//            memoryCache[index] = viewController
+//        }
     }
     
     func layoutChildViewControlls() {

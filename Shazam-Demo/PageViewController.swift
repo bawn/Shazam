@@ -64,6 +64,7 @@ class PageViewController: ShazamPageViewController {
         
         view.backgroundColor = .white
         headerView.button.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
+//        headerView.isHidden = true
         menuView.contentInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
         
         if selectedIndex == 0 {
@@ -176,7 +177,8 @@ class PageViewController: ShazamPageViewController {
     }
 
     override func keepChildScrollViewOffset(_ pageController: ShazamPageViewController) -> Bool {
-        return selectedIndex == 0 ? true : false
+        return false
+//        return selectedIndex == 0 ? true : false
     }
     
     override func pageController(_ pageController: ShazamPageViewController, willDisplay viewController: (UIViewController & ShazamChildViewController), forItemAt index: Int) {

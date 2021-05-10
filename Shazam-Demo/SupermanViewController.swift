@@ -41,10 +41,28 @@ class SupermanViewController: UIViewController, ShazamChildViewController {
                 automaticallyAdjustsScrollViewInsets = false
             }
         }
+        
+        let refreshControl = UIRefreshControl()
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+    }
+    
+    @objc private func refresh() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(6)) {
+            self.tableView.refreshControl?.endRefreshing()
+        }
     }
     
     func shazamChildScrollView() -> UIScrollView {
         return tableView
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
 }
 
