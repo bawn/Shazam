@@ -59,11 +59,7 @@ public class ShazamTopView: UIView {
             , let userInteractionViews = headerView.userInteractionViews() else {
             return false
         }
-        var frames = [CGRect]()
-        userInteractionViews.forEach { (item) in
-            let frame = convert(item.frame, to: self)
-            frames.append(frame)
-        }
+        let frames = userInteractionViews.map({convert($0.frame, to: self)})
         return !frames.filter({$0.contains(point)}).isEmpty
     }
 }
