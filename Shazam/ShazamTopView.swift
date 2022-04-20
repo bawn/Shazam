@@ -64,10 +64,6 @@ public class ShazamTopView: UIView {
             let frame = convert(item.frame, to: self)
             frames.append(frame)
         }
-        for item in frames {
-            let value = item.contains(point)
-            return value
-        }
-        return false
+        return !frames.filter({$0.contains(point)}).isEmpty
     }
 }
